@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dialog_box.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
       ),
       home: const MyHomePage(title: 'Slice of Life'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -204,12 +206,57 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Future openDialog() => showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text(
+                "My Order",
+                style: TextStyle(
+                  color: Colors.purple[500],
+                  fontFamily: 'OpenSans',
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              content: const DialogBoxWidget(),
+              contentPadding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            ));
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+      drawer: Drawer(
+          child: Column(children: [
+        const Padding(
+          padding: EdgeInsets.only(bottom: 8.0, top: 16.0),
+          child: Text(
+            "NEW",
+            style: TextStyle(fontSize: 16.0),
+          ),
+        ),
+        Divider(
+          color: Colors.purple[50],
+        ),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            "ONLINE EXCLUSIVE",
+            style: TextStyle(fontSize: 16.0),
+          ),
+        ),
+        Divider(
+          color: Colors.purple[50],
+        ),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            "COMBO",
+            style: TextStyle(fontSize: 16.0),
+          ),
+        ),
+      ])),
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
@@ -217,10 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.purple[500],
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Dialog()),
-          );
+          openDialog();
         },
         child: const Icon(Icons.add_shopping_cart_rounded),
       ),

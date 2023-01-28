@@ -182,127 +182,25 @@ class _MyHomePageState extends State<MyHomePage> {
   // contents of the different screen
   final _pages = [
     Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
+      Padding(
+          padding: EdgeInsets.only(bottom: 8.0),
+          child: Icon(FontAwesomeIcons.house)),
       Text("Home (Stay Tuned)"),
-      Icon(FontAwesomeIcons.house),
     ]),
-    Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      // Padding(
-      //   padding: const EdgeInsets.only(
-      //     left: 8.0,
-      //     right: 8.0,
-      //     top: 16.0,
-      //     bottom: 8.0),
-      //   child: Align(
-      //     alignment: Alignment.centerLeft,
-      //     child: Wrap(
-      //       alignment: WrapAlignment.start,
-      //       spacing: 4.0,
-      //       runSpacing: 2.0,
-      //       children: const <Widget>[
-      //         FilterChipWidget(label: 'Burgers'),
-      //         FilterChipWidget(label: 'Pizzas'),
-      //         FilterChipWidget(label: 'Combos'),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-      MenuList()
-    ]),
+    Column(mainAxisAlignment: MainAxisAlignment.center, children: [MenuList()]),
     Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
+      Padding(
+          padding: EdgeInsets.only(bottom: 8.0),
+          child: Icon(FontAwesomeIcons.fireFlameCurved)),
       Text("Rewards (Stay Tuned)"),
-      Icon(FontAwesomeIcons.bowlRice),
     ]),
     Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
+      Padding(
+          padding: EdgeInsets.only(bottom: 8.0),
+          child: Icon(FontAwesomeIcons.solidUser)),
       Text("Profile (Stay Tuned)"),
-      Icon(FontAwesomeIcons.solidUser),
     ]),
   ];
-
-  //   final _pages = [
-  //   const Text("Home (Stay Tuned)"),
-  //   const Text("Menu"),
-  //   const Text("Rewards (Stay Tuned)"),
-  //   const Text("Profile (Stay Tuned)"),
-  // ];
-
-  // final _icons = [
-  //   const Icon(FontAwesomeIcons.house),
-  //   const Icon(FontAwesomeIcons.bowlRice),
-  //   const Icon(FontAwesomeIcons.fireFlameCurved),
-  //   const Icon(FontAwesomeIcons.solidUser),
-  // ];
-
-  // final _foodItems = [
-  //   Card(
-  //         child: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Container(
-  //               constraints: const BoxConstraints.expand(
-  //                 height: 200.0,
-  //               ),
-  //               decoration: BoxDecoration(
-  //                 color: Colors.purple[50],
-  //               ),
-  //               child: Image.asset(
-  //                 "images/image1.jpg",
-  //                 fit: BoxFit.cover,
-  //               ),
-  //             ),
-  //             const ListTile(
-  //               title: Text('My Cravings Box'),
-  //               subtitle: Text("8.99 | 680-1690 Cal"),
-  //             )
-  //           ],
-  //         ),
-  //       ),
-  //   Card(
-  //         child: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Container(
-  //               constraints: const BoxConstraints.expand(
-  //                 height: 200.0,
-  //               ),
-  //               decoration: BoxDecoration(
-  //                 color: Colors.purple[50],
-  //               ),
-  //               child: Image.asset(
-  //                 "images/image2.jpg",
-  //                 fit: BoxFit.cover,
-  //               ),
-  //             ),
-  //             const ListTile(
-  //               title: Text('Hawaiian Pizza'),
-  //               subtitle: Text("4.99 | 680 Cal"),
-  //             )
-  //           ],
-  //         ),
-  //       ),
-  //   Card(
-  //         child: Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             Container(
-  //               constraints: const BoxConstraints.expand(
-  //                 height: 200.0,
-  //               ),
-  //               decoration: BoxDecoration(
-  //                 color: Colors.purple[50],
-  //               ),
-  //               child: Image.asset(
-  //                 "images/image3.jpg",
-  //                 fit: BoxFit.cover,
-  //               ),
-  //             ),
-  //             const ListTile(
-  //               title: Text('Tower Burger'),
-  //               subtitle: Text("3.99 | 680 Cal"),
-  //             )
-  //           ],
-  //         ),
-  //       ),
-  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -315,58 +213,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           // Center is a layout widget. It takes a single child and positions it
           // in the middle of the parent.
-          child: _pages.elementAt(_currentPage)
-          //   Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Expanded(
-          //       child: ListView(
-          //         padding: const EdgeInsets.all(8),
-          //         children: _foodItems,
-          //     ),
-          //   ),
-          //     // Card
-          //     // Card(
-          //     //   child: Column(
-          //     //     mainAxisSize: MainAxisSize.min,
-          //     //     children: [
-          //     //       Container(
-          //     //         constraints: const BoxConstraints.expand(
-          //     //           height: 200.0,
-          //     //         ),
-          //     //         decoration: BoxDecoration(
-          //     //           color: Colors.purple[50],
-          //     //         ),
-          //     //         child: Image.asset(
-          //     //           "images/image1.jpg",
-          //     //           fit: BoxFit.cover,
-          //     //         ),
-          //     //       ),
-          //     //       const ListTile(
-          //     //         title: Text('My Cravings Box'),
-          //     //         subtitle: Text("8.99 | 680-1690 Cal"),
-          //     //       )
-          //     //     ],
-          //     //   ),
-          //     // ),
-          //     // Image
-          //     // Container(
-          //     //   constraints: const BoxConstraints.expand(
-          //     //     height: 200.0,
-          //     //   ),
-          //     //   decoration: BoxDecoration(
-          //     //     color: Colors.purple[50],
-          //     //   ),
-          //     //   child: Image.asset(
-          //     //     "images/image1.jpg",
-          //     //     fit: BoxFit.cover,
-          //     //   ),
-          //     // ),
-          //     // _pages.elementAt(_currentPage),
-          //     // _icons.elementAt(_currentPage)
-          //   ],
-          // )
-          ),
+          child: _pages.elementAt(_currentPage)),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.purple[500],
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Dialog()),
+          );
+        },
+        child: const Icon(Icons.add_shopping_cart_rounded),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(

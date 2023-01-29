@@ -3,16 +3,20 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dialog_box.dart';
 
 void main() {
+  // Entry point for the application
   runApp(const MyApp());
 }
 
+// MyApp stateless widget called from runApp()
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of the application.
   @override
+  // BuildContext locating e/ tracking each widget's position in the tree
   Widget build(BuildContext context) {
     return MaterialApp(
+      /* MaterialApp wrapping a number of widgets*/
       title: 'Slice of Life',
       theme: ThemeData(
         primarySwatch: Colors.purple,
@@ -23,11 +27,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Class showing the list of food items as cards
 class MenuList extends StatelessWidget {
   MenuList({super.key});
 
   final _foodItems = [
     Padding(
+      // Layout widget to do with the space around the food items as well as the alignment of content on the App
       padding:
           const EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0, bottom: 16.0),
       child: Align(
@@ -45,6 +51,7 @@ class MenuList extends StatelessWidget {
       ),
     ),
     Card(
+      // For content and links with slight elevation on the sides
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -137,6 +144,7 @@ class MenuList extends StatelessWidget {
   }
 }
 
+// Creating filter chips to allow filtering of the food items by type
 class FilterChipWidget extends StatefulWidget {
   final String label;
 
@@ -150,6 +158,7 @@ class _FilterChipWidgetState extends State<FilterChipWidget> {
   var _active = false;
 
   @override
+  // Showing action when the filter chip is selected.
   Widget build(BuildContext context) {
     return FilterChip(
         label: Text(widget.label),
@@ -169,6 +178,7 @@ class _FilterChipWidgetState extends State<FilterChipWidget> {
   }
 }
 
+// Home page
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
@@ -178,10 +188,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // set the current page of the screen to the menu page
+  // Setting the current page of the screen to the menu page
   var _currentPage = 1;
 
-  // contents of the different screen
+  // Contents of the different screens with layout widgets
   final _pages = [
     Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
       Padding(
@@ -192,10 +202,12 @@ class _MyHomePageState extends State<MyHomePage> {
     Column(mainAxisAlignment: MainAxisAlignment.center, children: [MenuList()]),
     Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
       Padding(
+          // Layout widget
           padding: EdgeInsets.only(bottom: 8.0),
           child: Icon(FontAwesomeIcons.fireFlameCurved)),
       Text("Rewards (Stay Tuned)"),
     ]),
+    // Layout widget
     Column(mainAxisAlignment: MainAxisAlignment.center, children: const [
       Padding(
           padding: EdgeInsets.only(bottom: 8.0),
@@ -223,13 +235,15 @@ class _MyHomePageState extends State<MyHomePage> {
             ));
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
+        // Taking the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
       drawer: Drawer(
+          // Drawer to allow navigation to different parts of the app
           child: Column(children: [
         const Padding(
+          // Layout Widget
           padding: EdgeInsets.only(bottom: 8.0, top: 16.0),
           child: Text(
             "NEW",
@@ -237,6 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         Divider(
+          // Adding a divider with padding to seperate items for better visualization
           color: Colors.purple[50],
         ),
         const Padding(
@@ -258,10 +273,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ])),
       body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
+          // Taking a single child and positions it in the middle of the parent.
           child: _pages.elementAt(_currentPage)),
       floatingActionButton: FloatingActionButton(
+        // FAB for starting an order
         backgroundColor: Colors.purple[500],
         onPressed: () {
           openDialog();
@@ -269,6 +284,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add_shopping_cart_rounded),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        // Navigation to different pages of the app
         items: const [
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.house),
@@ -295,7 +311,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _currentPage = inIndex;
           });
         },
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
